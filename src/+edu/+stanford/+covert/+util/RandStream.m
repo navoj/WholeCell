@@ -283,11 +283,11 @@ classdef RandStream < handle
         end
         
         function value = get.randnAlg(this)
-            value = this.randStream.RandnAlg;
+            value = this.randStream.NormalTransform;
         end
         
         function set.randnAlg(this, value)
-            this.randStream.RandnAlg = value;
+            this.randStream.NormalTransform = value;
         end
         
         function value = get.antithetic(this)
@@ -336,7 +336,7 @@ classdef RandStream < handle
                 isequal(r1.StreamIndex, r2.StreamIndex) && ...
                 isequal(r1.State, r2.State) && ...
                 isequal(r1.Substream, r2.Substream) && ...
-                isequal(r1.RandnAlg, r2.RandnAlg) && ...
+                isequal(r1.NormalTransform, r2.NormalTransform) && ...
                 isequal(r1.Antithetic, r2.Antithetic) && ...
                 isequal(r1.FullPrecision, r2.FullPrecision);
         end

@@ -217,14 +217,16 @@ classdef ProcessTestCase < TestCase
         %- doesn't change state of global rand stream
         function testRandStreamUsage(this)
             %% hold onto state of default stream
-            defaultStream = RandStream.getDefaultStream;
+            %defaultStream = RandStream.getDefaultStream;
+            defaultStream = RandStream.getGlobalStream;
             defaultStreamType = defaultStream.Type;
             defaultStreamSeed = defaultStream.Seed;
             defaultStreamNumStreams = defaultStream.NumStreams;
             defaultStreamStreamIndex = defaultStream.StreamIndex;
             defaultStreamState = defaultStream.State;
             defaultStreamSubstram = defaultStream.Substream;
-            defaultStreamRandnAlg = defaultStream.RandnAlg;
+            %defaultStreamRandnAlg = defaultStream.RandnAlg;
+            defaultStreamRandnAlg = defaultStream.NormalTransform;
             defaultStreamAntithetic = defaultStream.Antithetic;
             defaultStreamFullPrecision = defaultStream.FullPrecision;
             
@@ -257,14 +259,15 @@ classdef ProcessTestCase < TestCase
             end
             
             %% assert state of default stream unchanged
-            defaultStream = RandStream.getDefaultStream;
+            %defaultStream = RandStream.getDefaultStream;
+            defaultStream = RandStream.getGlobalStream;
             assertEqual(defaultStreamType, defaultStream.Type);
             assertEqual(defaultStreamSeed, defaultStream.Seed);
             assertEqual(defaultStreamNumStreams, defaultStream.NumStreams);
             assertEqual(defaultStreamStreamIndex, defaultStream.StreamIndex);
             assertEqual(defaultStreamState, defaultStream.State);
             assertEqual(defaultStreamSubstram, defaultStream.Substream);
-            assertEqual(defaultStreamRandnAlg, defaultStream.RandnAlg);
+            assertEqual(defaultStreamRandnAlg, defaultStream.NormalTransform);
             assertEqual(defaultStreamAntithetic, defaultStream.Antithetic);
             assertEqual(defaultStreamFullPrecision, defaultStream.FullPrecision);
         end
