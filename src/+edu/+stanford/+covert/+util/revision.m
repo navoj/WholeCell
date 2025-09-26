@@ -16,10 +16,10 @@ else
 end
 
 function output = runSvnCommand(command)
-[status, output] = system(['svn ' command]);
-if status == 1
-    [status, output] = system(['"lib/svn/svn" ' command]);
-end
-if status == 1
-    throw(MException('revision:svnError', 'No subversion client available'));
-end
+[status, output] = system(['C:\GNUstep\msys\1.0\bin\svn ' command]);
+% if status == 1
+%     [status, output] = system(['"lib/svn/svn" ' command]);
+% end
+% if status == 1
+%     throw(MException('revision:svnError', 'No subversion client available'));
+% end

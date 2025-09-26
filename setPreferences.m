@@ -8,7 +8,7 @@ function setPreferences()
 
 %prevent MATLAB from using OpenGL to avoid segmentation faults
 set(0, 'DefaultFigureRenderer', 'painters')
-opengl('neverselect')
+%opengl('neverselect')
 
 %set character encoding to UTF-8
 if ~isdeployed
